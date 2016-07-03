@@ -1,0 +1,80 @@
+html,
+body {
+    background: #000 url('../images/studio.jpg') no-repeat center center fixed;
+    color: #fff;
+    font: 16px arial, helvetica, sans serif;
+    margin: 0em;
+    padding: 0;
+}
+
+
+
+h1 {
+    color: #ffc000;
+    margin: 10px 0 10px 20px;
+    padding: 0;
+    font-size: 3em
+}
+
+h3 {
+   color: #fff;
+    margin: 20px 0;
+    padding: 0;
+}
+
+section {
+    margin: 0 25px;
+}
+
+
+/******************************************************************************
+ * nav ********************************************************************
+ ******************************************************************************/
+
+nav ul {
+   /* background-color: #0277BD;*/
+    background-color: rgba(2, 119, 189,0.5);
+    border-bottom: 1px solid rgba(49,144,201,.25);
+    border-top: 1px solid rgb(1,87,155);
+    cursor: pointer;
+    display: inline-block;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+}
+
+nav ul li {
+    /*border-right: 1px solid #01579B;*/
+    display: inline-block;
+    margin: 0;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    display: block;
+    padding: 15px 30px;
+    position: relative;
+    text-decoration: none;
+}
+
+nav a:hover {
+    /*background-color: #ffc000;*/
+    /*color: #01579B;*/
+    background-color: rgba(1,87,155,.7);
+    box-shadow: inset 0px 2px 8px rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+}
+
+nav a:active {
+    color: #fff;
+    position: relative;
+}
+
+nav a.active {
+    background-color: #fff;
+    color: #01579B
+}
