@@ -28,7 +28,7 @@ h3 {
 }
 
 section {
-    margin: 25px 25px;
+    margin: 25px 25px 100px;
 }
 
 input {
@@ -100,83 +100,6 @@ nav a.active {
     background-color: #fff;
     color: #01579B
 }
-
-
-/******************************************************************************
- * Cart Container *************************************************************
- ******************************************************************************/
-
-footer {
-    background-color: #000;
-    border-top: 1px solid #fff;
-    box-shadow: -3px 0 2px 1px rgba(0,0,0,.5);
-    bottom: 0px;
-    height: 40px;
-    left: 0px;
-    margin: 0;
-    padding: 15px;
-    position: fixed;
-    white-space: nowrap;
-    width: 100%;
-}
-
-footer p {
-    color: #999;
-    display: inline-block;
-    margin: 0 20px 0 0;
-    padding: 0px;
-}
-
-.cart,
-.total {
-    background-color: #333;
-    border-radius: 3px;
-    color: #fff;
-    display: inline-block;
-    margin-right: 20px;
-    padding: 0px;
-}
-
-.cart p,
-.total p {
-    color: #fff;
-    margin: 0;
-    padding: 10px 15px;
-}
-
-.cart-count,
-.amount {
-    background: #ff9900;
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-    color: #fff;
-    margin-left: 5px;
-    text-align: center;
-    width: 15px;
-}
-
-.amount {
-    width: auto;
-}
-
-footer a {
-    background-color: #333;
-    border-radius: 5px;
-    color: #999;
-    display: inline-block;
-    padding: 10px 25px;
-    text-decoration: none;
-}
-
-footer a:hover {
-    background-color: #ff9900;
-    color: #fff;
-}
-
-footer a:active {
-    box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, .3);
-}
-
 
 /******************************************************************************
  * Products ********************************************************************
@@ -290,6 +213,148 @@ button.remove:active {
     box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, .3);
 }
 
+
+/******************************************************************************
+ * Cart Container *************************************************************
+ ******************************************************************************/
+
+footer {
+    background-color: #000;
+    border-top: 1px solid #fff;
+    box-shadow: -3px 0 2px 1px rgba(0,0,0,.5);
+    bottom: 0px;
+    height: 40px;
+    left: 0px;
+    margin: 0;
+    padding: 15px;
+    position: fixed;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+footer p {
+    color: #999;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    padding: 0px;
+}
+
+.cart,
+.total {
+    background-color: #333;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 0px;
+}
+
+.cart p,
+.total p {
+    color: #fff;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+p.description {    
+    min-height: 65px;
+}
+
+.cart-count,
+.amount {
+    background: #ff9900;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    margin-left: 5px;
+    text-align: center;
+    width: 15px;
+}
+
+.cart-count:after {
+     border-left: solid transparent 10px;
+     border-right: solid transparent 10px;
+     border-bottom: solid #ff9900 10px;
+     top: -10px;
+     content: " ";
+     right:17%;
+     position: absolute;
+     width: 0;
+ }
+
+.amount {
+    width: auto;
+}
+
+footer a {
+    background-color: #333;
+    border-radius: 5px;
+    color: #999;
+    display: inline-block;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: #ff9900;
+    color: #fff;
+}
+
+footer a:active {
+    box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, .3);
+}
+
+/******************************************************************************
+ * Tooltip  *******************************************************************
+ ******************************************************************************/
+ div.tooltip {
+     position: relative;
+     display: inline-block;
+  }
+
+ /* hide tooltip */
+ div.tooltip .wrapper {
+     display: none;
+ }
+
+ .wrapper h3 {
+    padding-left: 10px;
+    background: none;
+ }
+
+ /* show and style tooltip */
+div.tooltip:hover .wrapper {
+    border: 3px solid #ff9900;
+    background: #000;
+    border-radius: 0.5em;
+    bottom: 48px;
+    color: #fff;
+    display: block;
+    max-height:200px;
+    min-width: 20em;
+    overflow-y: auto;
+    padding: 0.5em;
+    position: absolute;
+}
+
+
+ .wrapper p {
+    display: block;
+    padding: 10px;
+    margin-right:0;
+    color: #fff;
+    border-bottom: 1px solid #333;
+ }
+
+.wrapper p span {
+    float: right;
+    margin-right: 20px;
+}
+
+ .wrapper button {
+    float:right;
+ }
 
 /******************************************************************************
 * Clear Fix ******************************************************************
