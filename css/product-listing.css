@@ -331,7 +331,7 @@ div.tooltip:hover .wrapper {
     bottom: 48px;
     color: #fff;
     display: block;
-    max-height:200px;
+    /*max-height:200px;*/
     min-width: 20em;
     overflow-y: auto;
     padding: 0.5em;
@@ -347,13 +347,24 @@ div.tooltip:hover .wrapper {
     border-bottom: 1px solid #333;
  }
 
-.wrapper p span {
-    float: right;
-    margin-right: 20px;
+ .wrapper p span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+ }
+
+ .qty {
+    text-align: center;
+ }
+
+
+.cart-price {
+    text-align: right;
+    
 }
 
  .wrapper button {
-    float:right;
+
  }
 
 /******************************************************************************

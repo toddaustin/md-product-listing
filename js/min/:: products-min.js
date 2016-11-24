@@ -1,0 +1,1 @@
+for(var addToCart=document.getElementsByTagName("button"),i=0;i<addToCart.length;i++)addToCart[i].addEventListener("click",function(){alert("clicked")});
