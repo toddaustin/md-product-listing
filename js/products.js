@@ -18,10 +18,11 @@ var cartCont = document.getElementsByClassName('tooltip-text');
 var cartQty = document.getElementsByClassName('qty');
 var cartItemPrice = document.getElementsByClassName('cart-price');
 var cartTotal = document.getElementsByClassName('amount');
-
+var promo = document.getElementById('apply-code');
 
 addItem();
 removeItem();
+applyPromo();
 
 
 function updateCartCount() {
@@ -50,7 +51,6 @@ function addItem() {
             var inCart = false;
             for (var c = 2; c < cartChild.length; c++) {
                 var currentEntry = cartChild[c].firstElementChild;
-                var currentItemTotal = currentEntry.nextElementSibling.value;
                 if (currentEntry.textContent === curProdName){
                     var curValue = parseInt(currentEntry.nextElementSibling.value);
                     curValue = curValue + parseInt(curProdQuantity);
@@ -64,7 +64,7 @@ function addItem() {
             var totalPrice = (curProdPrice * curProdQuantity).toFixed(2);
             var newP = document.createElement('p');
             newP.innerHTML = "<span class=\"item\">" + curProdName + "</span> <input class=\"qty\" value=" + curProdQuantity + "> <span class=\"cart-price\">$" + totalPrice + "</span><button class=\"remove\">Remove</button>";
-            
+
             cartCont[0].appendChild(newP);
         }
             removeItem();
@@ -101,4 +101,33 @@ function updateItemQty() {
             }
         });
     }
+}
+
+function applyPromo() {
+    promo.addEventListener('click', function() {
+        var pCode = this.previousElementSibling.value.toLowerCase();
+        if (pCode === "10off") {
+            // 10% off one item
+            var cartChild = cartCont[0].children;
+            var priceCheck = 0;
+            for (var p = 0; p < cartChild.length; p++) {
+                var iName = cartChild[p].firstChild.textContent;
+                if (items[iName] >= priceCheck) {
+                    priceCheck = parseFloat(items[iName]);
+                }
+            }
+            var tenOff = parseFloat(priceCheck * 0.10).toFixed(2);
+            var newT = parseFloat(cartTotal[0].textContent.slice(1) - tenOff);
+            cartTotal[0].textContent = "$" + newT.toFixed(2);
+            priceCheck = 0;
+            this.previousElementSibling.value = "";
+      
+        } else if (pCode === "train15") {
+            // 15 off Train shirts
+       
+        } else if (pCode === "5offtotal") {
+            // 5% off total
+            cartTotal[0].textContent = "$" + parseFloat(cartTotal[0].textContent.slice(1) - (cartTotal[0].textContent.slice(1) * 0.05)).toFixed(2);
+        }
+    });
 }

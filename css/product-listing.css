@@ -36,7 +36,7 @@ input {
     border-radius: 3px;
     border: 1px solid #333;
     box-sizing: border-box;
-    color: #fff;
+    color: #000;
     display: inline-block;
     font: 16px arial, sans-serif;
     line-height: normal;
@@ -45,6 +45,10 @@ input {
     text-align: left;
     vertical-align: middle;
     width: 80px
+}
+
+input.qty {
+    color: #fff;
 }
 
 
@@ -222,9 +226,9 @@ button.remove:active {
  ******************************************************************************/
 
 footer {
-    background-color: #000;
-    border-top: 1px solid #fff;
-    box-shadow: -3px 0 2px 1px rgba(0,0,0,.5);
+    background-color: #fafafa;
+    border-top: 1px solid #eee;
+    /*box-shadow: -3px 0 2px 1px rgba(0,0,0,.5);*/
     bottom: 0px;
     height: 40px;
     left: 0px;
