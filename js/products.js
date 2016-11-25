@@ -11,7 +11,7 @@ var items = {
     "Pico": "17.95",
     "Hex": "17.95",
     "Byte": "18.95"
-}
+};
 var addToCart = document.getElementsByClassName('add');
 var removeFromCart = document.getElementsByClassName('remove');
 var cartCont = document.getElementsByClassName('tooltip-text');
@@ -46,11 +46,27 @@ function addItem() {
             var curProdName = this.parentElement.firstElementChild.firstElementChild.textContent;
             var curProdPrice = items[curProdName];
             var curProdQuantity = this.previousElementSibling.firstElementChild.value;
+            var cartChild = cartCont[0].children;
+            var inCart = false;
+            for (var c = 2; c < cartChild.length; c++) {
+                var currentEntry = cartChild[c].firstElementChild;
+                var currentItemTotal = currentEntry.nextElementSibling.value;
+                if (currentEntry.textContent === curProdName){
+                    var curValue = parseInt(currentEntry.nextElementSibling.value);
+                    curValue = curValue + parseInt(curProdQuantity);
+                    currentEntry.nextElementSibling.value = curValue;
+                    currentEntry.nextElementSibling.nextElementSibling.textContent = '$' + parseFloat(curValue * curProdPrice).toFixed(2);
+                   inCart = true;
+                }
+            } 
+          
+          if (!inCart){
             var totalPrice = (curProdPrice * curProdQuantity).toFixed(2);
             var newP = document.createElement('p');
             newP.innerHTML = "<span class=\"item\">" + curProdName + "</span> <input class=\"qty\" value=" + curProdQuantity + "> <span class=\"cart-price\">$" + totalPrice + "</span><button class=\"remove\">Remove</button>";
-
+            
             cartCont[0].appendChild(newP);
+        }
             removeItem();
             updateCartCount();
             updateItemQty();
